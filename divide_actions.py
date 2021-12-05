@@ -1,4 +1,4 @@
-def divide_actions(file="karma.csv"):
+def divide_actions(file="data_files/karma.csv"):
     """Divide the actions into nice and naughty categories, and returns them in a dictionary."""
     actions = {}
     with open(file, "r") as file:

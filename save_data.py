@@ -1,4 +1,4 @@
-def save_data(data, file="challenge-1.csv"):
+def save_data(data, file="data_files/challenge-1.csv"):
     """Save personal datas into a CSV file."""
     with open(file, "w") as file:
         for person in data:

@@ -1,4 +1,4 @@
-def return_data(actions, file="profiles.csv"):
+def return_data(actions, file="data_files/profiles.csv"):
     """Return all person's name, personal actions, karma number, and ideal gift categories in a nested list."""
     people = {}
     nice_actions = actions["nice"]
