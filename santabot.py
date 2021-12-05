@@ -44,9 +44,18 @@ def calculate_personal_information(file, rated_actions):
     return all_data
 
 
+def save_data(file, data):
+    """Save personal datas into a CSV file."""
+    with open(file, "w") as file:
+        for person in data:
+            line = f"{person[0]}, {person[1]}, {person[2]}, {person[3]}"
+            file.writelines(line+"\n")
+
+
 def main():
     rated_actions = evaluate_actions("karma.csv")
     personal_datas = calculate_personal_information("profiles.csv", rated_actions)
+    save_data("challenge-1.csv", personal_datas)
 
 
 if __name__ == "__main__":
