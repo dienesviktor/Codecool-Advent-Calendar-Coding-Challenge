@@ -1,12 +1,7 @@
-def main():
-    from divide_actions import divide_actions as actions
-    from return_data import return_data as data
-    from save_data import save_data
+from divide_actions import divide_actions
+from return_data import return_data
+from save_data import save_data
 
-    actions = actions()
-    data = data(actions)
-    save_data(data)
-
-
-if __name__ == "__main__":
-    main()
+actions = divide_actions()
+data = return_data(actions)
+save_data(data)
