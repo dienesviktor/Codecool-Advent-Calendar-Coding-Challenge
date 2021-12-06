@@ -1,2 +1,3 @@
-Olivia, ['helped a friend'], 1, ['wellness']
-Liam, ['is always late'], -1, ['wellness']
+name;actions;karma;ideal present categories
+Olivia;helped a friend;1;wellness
+Liam;is always late;-1;wellness

@@ -10,7 +10,7 @@ def return_data(actions, file="data_files/profiles.csv"):
         for i in splitted:
             name = i[0]
             actions = i[1].split(",")
-            gift = i[2]
+            gift = i[2].split(",")
             if name not in people:
                 people[name] = [actions]
             else:
@@ -23,6 +23,9 @@ def return_data(actions, file="data_files/profiles.csv"):
                     karma += 1
                 elif action in naughty_actions:
                     karma -= 1
-            personal_data = [name, personal_actions, karma, gift.split(",")]
-            data.append(personal_data)
+        
+        personal_actions_string = ",".join(personal_actions)
+        gift_string = ",".join(gift)
+        personal_data = [name, personal_actions_string, karma, gift_string]
+        data.append(personal_data)
     return data
