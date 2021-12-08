@@ -4,6 +4,7 @@ def return_data(actions, file="data_files/profiles.csv"):
     nice_actions = actions["nice"]
     naughty_actions = actions["naughty"]
     data = []
+    gifts = {}
     with open(file, "r") as file:
         lines = file.read().splitlines()
         splitted = [lines[i].split(";") for i in range(1, len(lines))]
@@ -11,6 +12,7 @@ def return_data(actions, file="data_files/profiles.csv"):
             name = i[0]
             actions = i[1].split(",")
             gift = i[2].split(",")
+            gifts[name] = gift
             if name not in people:
                 people[name] = [actions]
             else:
@@ -23,9 +25,11 @@ def return_data(actions, file="data_files/profiles.csv"):
                     karma += 1
                 elif action in naughty_actions:
                     karma -= 1
-        
         personal_actions_string = ",".join(personal_actions)
-        gift_string = ",".join(gift)
+        for key, value in gifts.items():
+            if key == name:
+                gift = value
+                gift_string = ",".join(gift)
         personal_data = [name, personal_actions_string, karma, gift_string]
         data.append(personal_data)
     return data
