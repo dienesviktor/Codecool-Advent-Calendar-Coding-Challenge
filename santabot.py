@@ -1,9 +1,9 @@
-from divide_actions import divide_actions
-from return_data import return_data
-from save_data import save_data
-from unwrapping_gifts import unwrapping_gifts
-from select_gifts import select_gifts
-from save_data2 import save_data2
+from karma.divide_actions import divide_actions
+from karma.return_data import return_data
+from karma.save_data import save_data
+from ideal_present.unwrapping_gifts import unwrapping_gifts
+from ideal_present.select_gifts import select_gifts
+from ideal_present.save_data2 import save_data2
 
 actions = divide_actions()
 challenge_1 = return_data(actions)
