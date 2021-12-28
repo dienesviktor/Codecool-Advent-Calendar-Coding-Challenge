@@ -1,4 +1,4 @@
-from santabot import divide_actions, return_data, save_data, unwrapping_gifts, select_gifts, save_data2
+from santabot import divide_actions, return_data, save_data, unwrapping_gifts, select_gifts, save_data2, read_map, delivery_gifts
 
 
 def test_divide_actions():
@@ -35,3 +35,15 @@ def test_save_data_2():
     with open("test_files/test_challenge-2.csv", "r") as file:
         content = file.readlines()
         assert content[1] == "Olivia Johnson;doesn't respect their parents,takes good care of their pet,did volunteer work,didn't pay for the public transportation,lied to a friend,swears a lot,loves their family,is always late,listened to their partner,stole money,cut the line,got too drunk,smoked in a restaurant toilet,respected others' opinions,used renewable energies;-3;pets,electronic devices;one pieace of coal\n"
+
+
+def test_read_map():
+    assert read_map(file="test_files/test_planet-small.map") == ['#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '\n', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', '\n', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\n', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', '\n', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '\n', ' ', '#', ' ', ' ', ' ', 'H', ' ', ' ', ' ', ' ', ' ', '\n', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', '\n', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', '\n', ' ', ' ', ' ', ' ', '#', ' ', ' ', '#', ' ', ' ', ' ', '\n', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '\n', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', ' ']
+
+
+def test_delivery_gifts():
+    map = read_map(file="test_files/test_planet-small.map")
+    delivery_gifts(map, "test_files/test_challenge-3.frames")
+    with open("test_files/test_challenge-3.frames", "r") as file:
+        content = file.readlines()
+        assert content == ['#****#*****\n', '********#**\n', '***#*******\n', '*#*****#***\n', '*********#*\n', '*#***H*****\n', '******#***#\n', '**#*****#**\n', '****#**#***\n', '*#*******#*\n', '***#***#***']
