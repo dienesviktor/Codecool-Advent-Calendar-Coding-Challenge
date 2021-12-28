@@ -7,60 +7,56 @@ def clear(s):
     os.system("cls||clear")
 
 
-def delivery_gifts(map):
+def write_file(map):
     with open("data_files/challenge-3.frames", "w") as file:
         for i in range(len(map)):
             file.write(map[i])
 
 
-
-    # for i in range(x, len(map)):
-    #     if map[i] == "H":
-    #         map[i] = "O"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #         clear(0.5)
-    #         map[i] = "H"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #     if map[i] == "#":
-    #         map[i] = "O"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #         clear(0.5)
-    #         map[i] = "#"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #     if map[i] == " ":
-    #         map[i] = "O"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #         map[i] = "*"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-
-
-    # for i in range(0, x):
-    #     if map[i] == "H":
-    #         map[i] = "O"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #         clear(0.5)
-    #         map[i] = "H"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #     if map[i] == "#":
-    #         map[i] = "O"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #         clear(0.5)
-    #         map[i] = "#"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #     if map[i] == " ":
-    #         map[i] = "O"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
-    #         map[i] = "*"
-    #         clear(0.1)
-    #         print(*map, sep=" ")
+def delivery_gifts(map):
+    index = map.index("H")
+    for i in range(index, len(map)):
+        if map[i] == "H":
+            map[i] = "O"
+            write_file(map)
+            print(*map, sep="")
+            clear(0.3)
+            map[i] = "H"
+            write_file(map)
+        if map[i] == "#":
+            map[i] = "O"
+            write_file(map)
+            print(*map, sep="")
+            clear(0.3)
+            map[i] = "#"
+            write_file(map)
+        if map[i] == " ":
+            map[i] = "O"
+            write_file(map)
+            print(*map, sep="")
+            clear(0.1)
+            map[i] = "*"
+            write_file(map)
+    for i in range(0, index):
+        if map[i] == "H":
+            map[i] = "O"
+            write_file(map)
+            print(*map, sep="")
+            clear(0.3)
+            map[i] = "H"
+            write_file(map)
+        if map[i] == "#":
+            map[i] = "O"
+            write_file(map)
+            print(*map, sep="")
+            clear(0.3)
+            map[i] = "#"
+            write_file(map)
+        if map[i] == " ":
+            map[i] = "O"
+            write_file(map)
+            print(*map, sep="")
+            clear(0.1)
+            map[i] = "*"
+            write_file(map)
+    print(*map, sep="")
