@@ -7,56 +7,83 @@ def clear(s):
     os.system("cls||clear")
 
 
-def write_file(map, file):
+def write_file(planet, file):
     with open(file, "w") as file:
-        for i in range(len(map)):
-            file.write(map[i])
+        for i in range(len(planet)):
+            file.write(planet[i])
 
 
-def delivery_gifts(map, file="data_files/challenge-3.frames"):
-    index = map.index("H")
-    for i in range(index, len(map)):
-        if map[i] == "H":
-            map[i] = "O"
-            write_file(map, file)
-            print(*map, sep="")
-            clear(0.3)
-            map[i] = "H"
-            write_file(map, file)
-        if map[i] == "#":
-            map[i] = "O"
-            write_file(map, file)
-            print(*map, sep="")
-            clear(0.3)
-            map[i] = "#"
-            write_file(map, file)
-        if map[i] == " ":
-            map[i] = "O"
-            write_file(map, file)
-            print(*map, sep="")
-            clear(0.1)
-            map[i] = "*"
-            write_file(map, file)
-    for i in range(0, index):
-        if map[i] == "H":
-            map[i] = "O"
-            write_file(map, file)
-            print(*map, sep="")
-            clear(0.3)
-            map[i] = "H"
-            write_file(map, file)
-        if map[i] == "#":
-            map[i] = "O"
-            write_file(map, file)
-            print(*map, sep="")
-            clear(0.3)
-            map[i] = "#"
-            write_file(map, file)
-        if map[i] == " ":
-            map[i] = "O"
-            write_file(map, file)
-            print(*map, sep="")
-            clear(0.1)
-            map[i] = "*"
-            write_file(map, file)
-    print(*map, sep="")
+def delivery_gifts(coordinates, input="data_files/planet.map", output="data_files/challenge-3.frames"):
+    with open(input, "r") as display_planet:
+        display_planet = display_planet.readlines()
+        planet = []
+        for lines in display_planet:
+            line = []
+            for pos in lines:
+                line.append(pos)
+            planet.append(line)
+    for line_num, line in enumerate(display_planet):
+        for pos_num, pos in enumerate(line):
+            if pos == "H":
+                index = (line_num, pos_num)
+    for coord in coordinates:
+        if coord >= index:
+            line, pos = coord
+            if planet[line][pos] == "H":
+                planet[line][pos] = "O"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+                print(*display_planet, sep="")
+                clear(0.3)
+                planet[line][pos] = "H"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+            if planet[line][pos] == "#":
+                planet[line][pos] = "O"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+                print(*display_planet, sep="")
+                clear(0.3)
+                planet[line][pos] = "#"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+            if planet[line][pos] == " ":
+                planet[line][pos] = "O"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+                print(*display_planet, sep="")
+                clear(0.1)
+                planet[line][pos] = "*"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+    for coord in coordinates:
+        if coord <= index:
+            line, pos = coord
+            if planet[line][pos] == "H":
+                planet[line][pos] = "O"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+                print(*display_planet, sep="")
+                clear(0.3)
+                planet[line][pos] = "H"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+            if planet[line][pos] == "#":
+                planet[line][pos] = "O"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+                print(*display_planet, sep="")
+                clear(0.3)
+                planet[line][pos] = "#"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+            if planet[line][pos] == " ":
+                planet[line][pos] = "O"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+                print(*display_planet, sep="")
+                clear(0.1)
+                planet[line][pos] = "*"
+                display_planet = "".join(j for i in planet for j in i)
+                write_file(display_planet, output)
+    print(*display_planet, sep="")

@@ -16,5 +16,5 @@ gifts = unwrapping_gifts()
 challenge_2 = select_gifts(gifts)
 save_data2(challenge_2)
 
-map = read_map()
-delivery_gifts(map)
+coordinates = read_map()
+delivery_gifts(coordinates)
